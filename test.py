@@ -21,6 +21,26 @@ def findLargestSquare(board):
                                         continue
     print("실행시간 : ", time.time() - start_time)
     return time.time() - start_time
+
+# def findLargestSquare(board):
+#     sum += len([[x for x in sub_board] for sub_board in board])
+#     table = [[1 if x == "O" else 0 for x in sub_board] for sub_board in board]
+#     max_square = 0
+#     start_time = time.time()
+#     for x in range(1, len(table)):
+#         for y in range(1, len(table[x])):
+#             if table[x][y] == 0:
+#                 continue
+#             # 해당 좌표 기준(x,y) : 왼쪽검사(x, y-1), 위쪽 검사(x-1, y), 11시 방향 대각선 검사(x-1, y-1)
+#             else:
+#                 _min = min([table[x][y-1], table[x-1][y], table[x-1][y-1]])
+#                 table[x][y] = _min + 1
+#                 if max_square < table[x][y]:
+#                     max_square = table[x][y]
+#     print("실행시간 : ", time.time() - start_time)
+#
+#     return time.time() - start_time
+
 # 아래 코드는 출력을 위한 테스트 코드입니다.
 
 testBoard1 = [['X','O','O','O','X'],
@@ -1725,9 +1745,9 @@ testBoard1 = [['X','O','O','O','X'],
 #               ['X','O','O','O','O', 'X']]
 #
 sum = 0
-for i in range(0, 10):
+for i in range(0, 100):
     sum += findLargestSquare(testBoard1)
-print(float(sum/10))
+print(round(float(sum/100), 4))
 # print("board 2 : " ,findLargestSquare(testBoard2))
 # print("board 3 : " ,findLargestSquare(testBoard3))
 # print("board 4 : " ,findLargestSquare(testBoard4))
