@@ -1,29 +1,27 @@
 def expressions(num):
-    answer = 1
-    origin_num = num
+    answer = 1 # 모든 num은 자기 자신을 답으로 가진다.
     _sum = 0
-    pivot = num // 2 + 1
+    left = 0
 
+    while left != (num // 2 + 1): # left
+        if _sum < num:
+            for right in range(left+1, num // 2 + 1 + 1):
+                _sum += right
+                print("left : ", left, "right : ", right, "sum : ", _sum)
 
-    for i in range(pivot, 0, -1):
-        if _sum < origin_num:
-            print("더해지는 값 : ", i)
-            _sum += i
-            print("합 출력 : ", _sum)
+                if _sum == num:
+                    answer += 1
+                    left += 1
+                    _sum = 0
+                    break
 
-            if _sum > origin_num:
-                continue
+                elif _sum > num:
+                    left += 1
+                    _sum = 0
+                    break
 
-            elif _sum == origin_num:
-                print("num : " , num)
-                print("15? : ", _sum)
-                answer += 1
-                _sum = 0
-
-    print("===answer===")
+    print("=====answer=====")
     return answer
 
-
 # 아래는 테스트로 출력해 보기 위한 코드입니다.
-# print(expressions(14))
 print(expressions(15))
